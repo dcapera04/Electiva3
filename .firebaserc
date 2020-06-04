@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-827ae": {
+      "hosting": {
+        "Electiva3": [
+          "login-827ae"
+        ]
+      }
+    }
+  }
+}

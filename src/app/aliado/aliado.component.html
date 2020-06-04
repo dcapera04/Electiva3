@@ -1,0 +1,248 @@
+<h1>CAPITAL RELACIONAL</h1>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div align ="center">
+                    <table class="table table-condensed text-center mt-5">
+                        <thead class="encabezadoTable text-center">
+                            <th scope="col">Sectores</th>
+                            <th scope="col">Subsector</th>
+                            <th scope="col">nombre_entidad</th>
+                            <th scope="col">contactos</th>
+                            <th scope="col">tipo_convenio</th>
+                            <th scope="col">proyectos_interinstitucionales</th>
+                            <th scope="col">Acciones</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let aliado  of aliado">
+                                <td>{{ aliado.sector }}</td>
+                                <td>{{ aliado.subsector }}</td>
+                                <td>{{ aliado.nombre_entidad }}</td>
+                                <td>{{ aliado.contactos_internos }}</td>
+                                <td>{{ aliado.tipo_convenio }}</td>
+                                <td>{{ aliado.proyectos_interinstitucionales }}</td>
+                                <td>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class ="btn-group">
+                                            <div class="col-sm-2">
+                                                <button type="button" class="btn-view" data-toggle="modal" data-target="#viewc" (click)="btnUpdate(aliado)"><i class="fas fa-eye"></i></button>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <button type="button" class="btn-edit" data-toggle="modal" data-target="#upaliado" (click)="btnUpdate(aliado)"><i class="fas fa-user-edit"></i></button>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <button type="button" class="btn-delete" (click)="delete(aliado)"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                   </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+       <div class="container mt-3">
+        <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+          CREAR ALIADO
+        </button>
+    </div>
+       </div>
+    <div class="modal fade bd-example-modal-lg" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">CREAR ALIADO</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+             </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Tipo de Convenio</label>
+                                    <select id="inputState" class="form-control mt-3" name="tipo_convenio" [(ngModel)]="tipo_convenio"  [ngModelOptions]="{standalone: true}">
+                                      <option value ="Seleccionar">Seleccionar..</option>
+                                      <option>convenio marco</option>
+                                      <option>investigacion en red</option>
+                                      <option>extension o proyeccion social</option>
+                                      <option>financiamiento</option>
+                                      <option>practica empresarial</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Sector</label>
+                                    <select id="inputState" class="form-control mt-3" name="sector" [(ngModel)]="sector"  [ngModelOptions]="{standalone: true}">
+                                      <option value = "Seleccionar">Seleccionar..</option>
+                                      <option>Educativo</option>
+                                      <option>Publico</option>
+                                      <option>Privado</option>
+                                      <option>Solidario</option>
+                                      <option>Gremios</option>
+                                      <option> Lideres de Opinion</option>
+                                      <option>Medios de Comunicacion</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Subsector</label>
+                                    <input type="text" class="form-control mt-1" placeholder="" name="subsector" [(ngModel)]="subsector" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>Nombre entidad</label>
+                                    <input type="text" class="form-control" placeholder="" name="nombre_entidad" [(ngModel)]="nombre_entidad" />
+                                </div>
+                                <div class="form-group col-md-7">
+                                    <label>Descripcion del convenio</label>
+                                    <input type="text" class="form-control" placeholder="" name="descripcion_convenio" [(ngModel)]="descripcion_convenio" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Contactos internos</label>
+                                    <input type="text" class="form-control" placeholder="" name="contactos_internos" [(ngModel)]="contactos_internos" />
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Contactos externos</label>
+                                    <input type="text" class="form-control" placeholder="" name="contactos_externos" [(ngModel)]="contactos_externos" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Proyectos interinstitucionales</label>
+                                    <input type="text" class="form-control" placeholder="" name="proyectos_interinstitucionales" [(ngModel)]="proyectos_interinstitucionales" />
+                                </div>
+                            </div>
+                        </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="btnCreate()" data-dismiss="modal">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--EDITAR ALIADO -->
+  <!-- Modal -->
+  <div class="modal fade" id="upaliado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">ACTUALIZAR ALIADO</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Tipo convenio</label>
+                        <input type ="text" class="form-control mt-3" name="tipo_convenio" [(ngModel)]="tipo_convenio"  [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Sector</label>
+                        <input type="text"  class="form-control mt-3" name="sector" [(ngModel)]="sector">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Subsector</label>
+                        <input type="text" class="form-control mt-1" placeholder="" name=" " [(ngModel)]="subsector" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>nombre_entidad</label>
+                        <input type="text" class="form-control mt-1" placeholder="" name="nombre_entidad" [(ngModel)]="nombre_entidad" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>descripcion_convenio</label>
+                        <input type="text" class="form-control" placeholder="" name="descripcion_convenio" [(ngModel)]="descripcion_convenio" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>contactos_internos</label>
+                        <input type="text" class="form-control" placeholder="" name="contactos_internos" [(ngModel)]="contactos_internos" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>contactos_externos</label>
+                        <input type="text" class="form-control" placeholder="" name="contactos_externos" [(ngModel)]="contactos_externos" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>proyectos_interinstitucionales</label>
+                        <input type="text" class="form-control" placeholder=" " name="proyectos_interinstitucionales" [(ngModel)]="proyectos_interinstitucionales" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary " (click)="accionUpdate()">Actualizar </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VER ALIADO -->
+  <div class="modal fade" id="viewc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">VER ALIADO</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Tipo convenio</label>
+                        <input type ="text" class="form-control mt-3" name="tipo_convenio" [(ngModel)]="tipo_convenio"  [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Sector</label>
+                        <input type="text"  class="form-control mt-3" name="sector" [(ngModel)]="sector">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Subsector</label>
+                        <input type="text" class="form-control mt-1" placeholder="" name=" " [(ngModel)]="subsector" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>nombre_entidad</label>
+                        <input type="text" class="form-control mt-1" placeholder="" name="nombre_entidad" [(ngModel)]="nombre_entidad" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>descripcion_convenio</label>
+                        <input type="text" class="form-control" placeholder="" name="descripcion_convenio" [(ngModel)]="descripcion_convenio" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>contactos_internos</label>
+                        <input type="text" class="form-control" placeholder="" name="contactos_internos" [(ngModel)]="contactos_internos" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>contactos_externos</label>
+                        <input type="text" class="form-control" placeholder="" name="contactos_externos" [(ngModel)]="contactos_externos" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>proyectos_interinstitucionales</label>
+                        <input type="text" class="form-control" placeholder=" " name="proyectos_interinstitucionales" [(ngModel)]="proyectos_interinstitucionales" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

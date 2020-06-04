@@ -1,0 +1,82 @@
+.encabezadoTable {
+    background-color: rgb(85, 92, 97);
+    color: #FFFF;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}
+
+.btn-new {
+    background-color: #034159;
+    border: 1px solid #BFBFBF;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 50px;
+    width: 50px;
+}
+
+.fa-plus {
+    margin-left: -28px;
+    margin-top: -4px;
+    color: #FFF;
+}
+
+.fa-users {
+    color: #034159;
+}
+
+.btn-view {
+    background-color: #034159;
+    border: 1px solid #BFBFBF;
+    margin: 1px 0.5px;
+    border-radius: 50%;
+    text-decoration: none;
+     display: inline;
+    font-size: 8px;
+}
+
+.fa-eye {
+    color: #abb5b8;
+    margin-bottom: -4px;
+}
+
+.btn-edit {
+    background-color: #74BCED;
+    border: 1px solid #BFBFBF;
+    margin: 1px 0.5px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: inline;
+    font-size: 8px;
+}
+
+.fa-user-edit {
+    color: #FFF;
+    margin-top:  -4px;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    border: 1px solid #BFBFBF;
+    margin: 1px 0.5px;
+    border-radius: 50%;
+    text-decoration: none;
+   display: inline;
+    font-size: 8px;
+}
+
+.fa-user-minus {
+    color: #FFF;
+}
+
+.nav-text {
+    font-family: 'Roboto Regular';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    color: #034159;
+}

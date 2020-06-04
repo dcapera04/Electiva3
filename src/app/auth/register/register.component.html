@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col col-md-6 mx-auto mt-5">
+        <div class="car">
+            <div class="card-body">
+                <h2 class="text-center">Bienvenido al Portal Capital Relacional </h2>
+                <h3 class="text-center">Registro</h3>
+                <div class="image-center">
+                    <img src="https://www.ucc.edu.co/institucion/PublishingImages/Paginas/historia/logo-UCC-Universidad-cooperativa-de-colombia.jpg"
+                    class="img-fluid" alt="Responsive image">
+                  </div>
+                <form [formGroup]= "registerForm" (ngSubmit)="onRegister()" >
+                    <div class="form-group">
+                        <label for="email">Email/Usuario</label>
+                        <input type="email" class="form-control" formControlName = "email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName = "password"/>
+                    </div>
+                    <button class="btn btn-dark btn-lg btn-block">Registrarse</button>
+                </form>
+                <div class="form-group mt-3">
+                </div>
+                 <p>Tienes una cuenta ?<a [routerLink]="['/login']"> Iniciar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
